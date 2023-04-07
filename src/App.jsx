@@ -4,6 +4,8 @@ import Square from './components/Square.jsx';
 import Board from './components/Board.jsx';
 import Turns from './components/Turns.jsx';
 import ResetButton from './components/ResetButton.jsx';
+import Modal from './components/Modal.jsx';
+
 import { TURNS, WINNER_COMBOS } from './constants/index.js';
 
 
@@ -77,20 +79,7 @@ function App() {
 
       <Turns turn={turn} TURNS={TURNS}/>
 
-      {
-        winner !== null && (
-
-          <section>
-
-            <h2>
-              {
-                winner ? `Ganó ${winner}` : 'Empate' 
-              }
-            </h2>
-
-          </section>
-        )
-      }
+      <Modal winner={winner} resetGame={resetGame}/>
 
       <ResetButton resetGame={resetGame}/>
       
