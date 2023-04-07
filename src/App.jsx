@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
-import Square from './components/Square.jsx';
+
 import Board from './components/Board.jsx';
 import Turns from './components/Turns.jsx';
-import ResetButton from './components/ResetButton.jsx';
 import Modal from './components/Modal.jsx';
+import Square from './components/Square.jsx';
+import ResetButton from './components/ResetButton.jsx';
 
-import { TURNS, WINNER_COMBOS } from './constants/index.js';
+
+import { TURNS } from './constants/index.js';
+import { checkWinner, checkEndGame } from './utils/index.js';
 
 
 function App() {
@@ -17,29 +20,13 @@ function App() {
   const [turn, setTurn] = useState(TURNS.X);
   const [winner, setWinner] = useState(null);
 
-  const checkWinner = (boardTocheck) => {
-
-    for (const combo of WINNER_COMBOS) {
-
-      const [a,b,c] = combo;
-
-      if(boardTocheck[a] && boardTocheck[a] === boardTocheck[b] && boardTocheck[a] === boardTocheck[c]) {
-
-        return boardTocheck[a];
-      }
-    }
-
-    return null;
-  };
-
+  
   const resetGame = () => {
 
     setBoard(initialBoard);
     setTurn(TURNS.X);
     setWinner(null);
   };
-
-  const checkEndGame = (newBoard) => newBoard.every((square) => square !== null);
 
   const updatedBoard = (index) => {
 
@@ -68,6 +55,7 @@ function App() {
       setWinner(false);
     }
   };
+
 
   return (
   
