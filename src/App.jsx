@@ -14,12 +14,13 @@ import { checkWinner, checkEndGame } from './utils/index.js';
 
 function App() {
 
-  
   const [board, setBoard] = useState(() => {
 
     const boardFromStorage = window.localStorage.getItem('board');
-    boardFromStorage ? JSON().parse(boardFromStorage) : Array(9).fill(null);
+    return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null);
   });
+
+  console.log(board)
 
   const [turn, setTurn] = useState(() => {
 
@@ -28,17 +29,6 @@ function App() {
   });
 
   const [winner, setWinner] = useState(null);
-
-  
-  const resetGame = () => {
-
-    setBoard(initialBoard);
-    setTurn(TURNS.X);
-    setWinner(null);
-    
-    window.localStorage.removeItem('board');
-    window.localStorage.removeItem('turn');
-  };
 
   const updatedBoard = (index) => {
 
@@ -71,6 +61,15 @@ function App() {
     }
   };
 
+  const resetGame = () => {
+
+    setBoard(Array(9).fill(null));
+    setTurn(TURNS.X);
+    setWinner(null);
+
+    window.localStorage.removeItem('board');
+    window.localStorage.removeItem('turn');
+  };
 
   return (
   
