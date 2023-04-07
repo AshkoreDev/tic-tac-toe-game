@@ -14,10 +14,19 @@ import { checkWinner, checkEndGame } from './utils/index.js';
 
 function App() {
 
-  const initialBoard = Array(9).fill(null);
+  
+  const [board, setBoard] = useState(() => {
 
-  const [board, setBoard] = useState(initialBoard);
-  const [turn, setTurn] = useState(TURNS.X);
+    const boardFromStorage = window.localStorage.getItem('board');
+    boardFromStorage ? JSON().parse(boardFromStorage) : Array(9).fill(null);
+  });
+
+  const [turn, setTurn] = useState(() => {
+
+     const turnFromStorage = window.localStorage.getItem('turn');
+     return turnFromStorage ?? TURNS.X;
+  });
+
   const [winner, setWinner] = useState(null);
 
   
@@ -26,6 +35,9 @@ function App() {
     setBoard(initialBoard);
     setTurn(TURNS.X);
     setWinner(null);
+    
+    window.localStorage.removeItem('board');
+    window.localStorage.removeItem('turn');
   };
 
   const updatedBoard = (index) => {
@@ -40,6 +52,9 @@ function App() {
 
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
     setTurn(newTurn);
+
+    window.localStorage.setItem('board', JSON.stringify(newBoard));
+    window.localStorage.setItem('turn', turn);
 
     const newWinner = checkWinner(newBoard);
     if(newWinner) {
