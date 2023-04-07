@@ -1,4 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
+
+
+const SquareItem = styled.div `
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+`;
 
 
 function Square({ index, children, isSelected, updatedBoard, squareClass }) {
@@ -9,9 +17,9 @@ function Square({ index, children, isSelected, updatedBoard, squareClass }) {
 
   return (
   
-	  <div className={`square ${className}`} onClick={handleClick}>
+	  <SquareItem className={className} onClick={handleClick}>
 	    { children }
-	  </div>
+	  </SquareItem>
 
   );
 };

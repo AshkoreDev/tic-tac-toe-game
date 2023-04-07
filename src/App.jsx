@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
+import styled from 'styled-components';
 
 import Board from './components/Board.jsx';
 import Turns from './components/Turns.jsx';
@@ -7,9 +8,17 @@ import Modal from './components/Modal.jsx';
 import Square from './components/Square.jsx';
 import ResetButton from './components/ResetButton.jsx';
 
-
 import { TURNS } from './constants/index.js';
 import { checkWinner, checkEndGame } from './utils/index.js';
+
+
+const GameMain = styled.main `
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+`;
 
 
 function App() {
@@ -73,7 +82,7 @@ function App() {
 
   return (
   
-    <main>
+    <GameMain>
 
       <h1>TIC TAC TOE</h1>
 
@@ -85,7 +94,7 @@ function App() {
 
       <ResetButton resetGame={resetGame}/>
       
-    </main>
+    </GameMain>
 
   );
 };
