@@ -1,15 +1,15 @@
 import React from 'react';
 
 
-function Square({ index, children, isSelected, updatedBoard }) {
+function Square({ index, children, isSelected, updatedBoard, squareClass }) {
 
-	const className = `square ${isSelected ? 'is-selected' : ''}`;
+	const className = `${squareClass} ${isSelected ? 'is-selected' : 'no-selected'}`;
 
 	const handleClick = () => updatedBoard(index);
 
   return (
   
-	  <div className={className} onClick={handleClick}>
+	  <div className={`square ${className}`} onClick={handleClick}>
 	    { children }
 	  </div>
 

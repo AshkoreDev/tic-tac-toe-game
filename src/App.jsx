@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Square from './components/Square.jsx';
-
-
-const TURNS = {
-  X: 'X',
-  O: 'O'  
-};
-
-const WINNER_COMBOS = [ [0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6] ];
+import Board from './components/Board.jsx';
+import Turns from './components/Turns.jsx';
+import ResetButton from './components/ResetButton.jsx';
+import { TURNS, WINNER_COMBOS } from './constants/index.js';
 
 
 function App() {
@@ -65,32 +61,15 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-
-  // }, []);
-
   return (
   
     <main>
-      <section className="game">
-        {
-          board.map((a, index) => {
 
-            return (
-              
-              <Square key={index} index={index} updatedBoard={updatedBoard}>
-                { a }
-              </Square>
+      <h1>TIC TAC TOE</h1>
 
-            );
-          })
-        }
-      </section>
+      <Board board={board} updatedBoard={updatedBoard}/>
 
-      <section className="turn">
-        <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>
-        <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
-      </section>
+      <Turns turn={turn} TURNS={TURNS}/>
 
       {
         winner !== null && (
@@ -107,7 +86,7 @@ function App() {
         )
       }
 
-      <button onClick={resetGame}>Jugar de nuevo</button>
+      <ResetButton resetGame={resetGame}/>
       
     </main>
 

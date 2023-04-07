@@ -18,32 +18,83 @@ code {
 	box-sizing: border-box;
 }
 
+main {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+}
+
 .game {
 	width: 300px;
-	margin: 20px auto;
+	margin: 0 auto;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(3, 1fr);
+	justify-items: center;
 	gap: 20px 10px;
 }
 
 .square {
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.board-square {
 	width: 80px;
 	height: 80px;
 	padding: 25px 0;
-	text-align: center;
-	font-size: 18px;
-	font-weight: bold;
+	color: #fff;
 	border: 1px solid grey;
 }
 
+.board-square:nth-child(odd) {
+	background: #044a81;
+}
+
+.board-square:nth-child(even) {
+	background: #d12d2d;
+}
+
 .turn {
-	margin-top: 40px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	gap: 20px;
 }
 
-.is-selected {
-	background: tomato;
+.turn-square {
+	width: 50px;
+	height: 50px;
+	padding: 12px 0;
+	color: #000;
+	border-radius: 8px;
+	border: 1px solid #044a81;
+	background: transparent;
+}
+
+.turn-square.is-selected {
+	color: #fff;
+	background:  #044a81;
+}
+
+.resetBtn {
+	padding: 8px;
+	color: #fff;
+	font-size: 1rem;
+	border-radius: 8px;
+	border: transparent;
+	background: #4b575c;
+}
+
+@media (hover:hover) {
+	.resetBtn:hover {
+		cursor: pointer;
+		opacity: 0.8;
+	}
+	.board-square:hover {
+		cursor: pointer;
+	}
 }
