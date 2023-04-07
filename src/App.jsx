@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import confetti from 'canvas-confetti';
 import Square from './components/Square.jsx';
 import Board from './components/Board.jsx';
 import Turns from './components/Turns.jsx';
@@ -55,6 +56,11 @@ function App() {
     if(newWinner) {
 
       setWinner(newWinner);
+      confetti({
+        particleCount: 500,
+        spread: 80,
+        origin: { y: 0.8 }
+      });
 
     } else if(checkEndGame(newBoard)) {
       setWinner(false);
