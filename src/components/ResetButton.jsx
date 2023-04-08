@@ -1,19 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const ResetBtn = styled.button `
 	padding: 8px;
-	color: #fff;
+	color: #181818;
 	font-size: 1rem;
+	font-weight: bold;
 	border-radius: 8px;
 	border: transparent;
-	background: #4b575c;
+	background: #F66B0E;
 
-	&:hover {
-		cursor: pointer;
-		opacity: 0.8;
-	}
+		&:hover {
+			cursor: pointer;
+			opacity: 0.8;
+		}
 `;
+
 
 function ResetButton({ resetGame }) {
 

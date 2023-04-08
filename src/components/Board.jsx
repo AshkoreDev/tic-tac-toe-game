@@ -10,7 +10,8 @@ const GameBoard = styled.section `
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   justify-items: center;
-  gap: 20px 10px;
+  gap: 20px;
+  background: #181818;
 `;
 
 

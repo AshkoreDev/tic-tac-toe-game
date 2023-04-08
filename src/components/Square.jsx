@@ -3,21 +3,35 @@ import styled from 'styled-components';
 
 
 const SquareItem = styled.div `
-	font-size: 18px;
+	width: 86px;
+	height: 80px;
+	padding: 8px 0;	
+	color: #ec0000;
+	font-size: 3rem;
 	font-weight: bold;
 	text-align: center;
+	background: #fff;
+
+		&.turnColor {
+			color: #1002ed;
+		}
+		&:hover {
+			cursor: pointer;
+		}
 `;
 
 
-function Square({ index, children, isSelected, updatedBoard, squareClass }) {
+function Square({ index, children, updatedBoard }) {
 
-	const className = `${squareClass} ${isSelected ? 'is-selected' : 'no-selected'}`;
+	console.log(children);
+
+	const className = (children === '❌') ? 'turnColor' : '';
 
 	const handleClick = () => updatedBoard(index);
 
   return (
   
-	  <SquareItem className={className} onClick={handleClick}>
+	  <SquareItem onClick={handleClick} className={className}>
 	    { children }
 	  </SquareItem>
 
