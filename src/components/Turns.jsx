@@ -13,8 +13,7 @@ const TurnSquare = styled.p `
 	width: 50px;
 	height: 50px;
 	padding: 12px 0;
-	color: #181818;
-	font-size: 18px;
+	font-size: 1.13rem;
 	font-weight: bold;
 	text-align: center;
 	border-radius: 8px;
@@ -22,7 +21,6 @@ const TurnSquare = styled.p `
 	background: transparent;
 
 		&.is-selected {
-			color: #181818;
 			background:  #F66B0E;
 			border: transparent;
 		}

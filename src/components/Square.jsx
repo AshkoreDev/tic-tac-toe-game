@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const SquareItem = styled.div `
 	width: 86px;
-	height: 80px;
+	height: 86px;
 	padding: 8px 0;	
 	color: #ec0000;
 	font-size: 3rem;
@@ -22,8 +22,6 @@ const SquareItem = styled.div `
 
 
 function Square({ index, children, updatedBoard }) {
-
-	console.log(children);
 
 	const className = (children === '❌') ? 'turnColor' : '';
 

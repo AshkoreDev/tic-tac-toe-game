@@ -3,12 +3,12 @@ import styled from 'styled-components';
 
 
 const ResetBtn = styled.button `
-	padding: 8px;
+	padding: 10px;
 	color: #181818;
 	font-size: 1rem;
 	font-weight: bold;
 	border-radius: 8px;
-	border: transparent;
+	border: 1px solid #181818;
 	background: #F66B0E;
 
 		&:hover {
