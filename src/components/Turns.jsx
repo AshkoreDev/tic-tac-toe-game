@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 
@@ -39,6 +38,5 @@ function Turns({ turn, TURNS }) {
 
 	);
 };
-
 
 export default Turns;

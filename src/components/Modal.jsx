@@ -1,6 +1,5 @@
-import React from 'react';
-import ResetButton from './ResetButton.jsx';
 import styled from 'styled-components';
+import ResetButton from './ResetButton.jsx';
 
 
 const GameModal = styled.section `
@@ -25,8 +24,6 @@ const ModalContent = styled.div `
 `;
 
 const ModalText= styled.h2 `
- 	
-
 	color: white;
 `;
 
@@ -51,6 +48,5 @@ function Modal({ winner, resetGame }) {
 
 	);
 };
-
 
 export default Modal;

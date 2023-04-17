@@ -1,6 +1,5 @@
-import React from 'react';
-import Square from './Square.jsx';
 import styled from 'styled-components';
+import Square from './Square.jsx';
 
 
 const GameBoard = styled.section `
@@ -36,6 +35,5 @@ function Board({ board, updatedBoard }) {
 
 	);
 };
-
 
 export default Board;
